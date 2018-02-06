@@ -1,0 +1,54 @@
+<ion-content class="login-content" padding>
+  <ion-row class="logo-row">
+    <ion-col></ion-col>
+    <ion-col width-67>
+      <img src="http://placehold.it/300x200" />
+    </ion-col>
+    <ion-col></ion-col>
+  </ion-row>
+  <div class="login-box" *ngIf="!showverifyOTP">
+    <form #registerForm="ngForm">
+      <ion-row>
+        <ion-col>
+          <ion-list inset>
+            <ion-item>
+              <ion-input type="number" placeholder="Mobile Number" name="mobNumber" [(ngModel)]="mobileNumber" required></ion-input>
+            </ion-item>
+          </ion-list>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col class="signup-col">
+          <button ion-button class="submit-btn" full type="button" [disabled]="!registerForm.form.valid" (click)="sendOTP()">Send OTP</button>
+        </ion-col>
+      </ion-row>
+    </form>
+  </div>
+  <div class="login-box" *ngIf="showverifyOTP">
+    <form #otpVerifyForm="ngForm">
+      <ion-row>
+        <ion-col>
+          <ion-list inset>
+            <ion-item class="otpInput">
+              <ion-input type="number" #firstInput name="firstDigit" [(ngModel)]="firstDigit" (keyup)="secondInput.setFocus()"></ion-input>
+            </ion-item>
+            <ion-item class="otpInput" >
+              <ion-input (keyup)="thirdInput.setFocus()" #secondInput type="number" name="secondDigit" [(ngModel)]="secondDigit"></ion-input >
+            </ion-item>
+            <ion-item class="otpInput">
+              <ion-input #thirdInput (keyup)="fourthInput.setFocus()" type="number" name="thirdDigit" [(ngModel)]="thirdDigit"></ion-input>
+            </ion-item>
+            <ion-item class="otpInput">
+              <ion-input #fourthInput type="number" name="fourthDigit" [(ngModel)]="fourthDigit"></ion-input>
+            </ion-item>
+          </ion-list>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col class="signup-col">
+          <button ion-button class="submit-btn" full type="button" [disabled]="!otpVerifyForm.form.valid" (click)="verifyOTP($event)">Verify</button>
+        </ion-col>
+      </ion-row>
+    </form>
+  </div>
+</ion-content>

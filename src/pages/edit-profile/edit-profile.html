@@ -1,0 +1,42 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>edit-profile</ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content padding>
+  <ion-item>
+    <ion-img item-center src="../assets/userImage.png" style="height: 80px; width: 80px;"></ion-img>
+    
+  </ion-item>
+  <ion-list>
+    <ion-item>
+      <ion-label floating>FirstName</ion-label>
+      <ion-input type="text" [(ngModel)]="profileData.firstName" name="firstName"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label floating>Last Name</ion-label>
+      <ion-input type="text" [(ngModel)]="profileData.lastName" name="lastName"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label floating>Email</ion-label>
+      <ion-input type="email" [(ngModel)]="profileData.email" name="email"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label floating>Address</ion-label>
+      <ion-input type="text" [(ngModel)]="profileData.address" name="address"></ion-input>
+    </ion-item>
+    <button ion-button block (click)="saveProfile()">Save</button>
+  </ion-list>
+</ion-content>
+
+
+<ion-footer>
+  <ion-toolbar (click)="skipProfile()">
+    <p>SKIP</p>
+    <ion-buttons end>
+      <button ion-button icon-right color="royal">
+        <ion-icon name="arrow-dropright-circle"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-footer>

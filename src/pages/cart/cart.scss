@@ -1,0 +1,15 @@
+page-cart {
+	.footer .toolbar-background{
+         background: linear-gradient(to right
+    , red, yellow);
+    }
+
+   .item-block{
+    height: 0; 
+    transition: 0.09s all linear;
+  }
+  .item-expend{
+    height: 45px;
+    transition: 250ms ease-in-out;
+  }
+}

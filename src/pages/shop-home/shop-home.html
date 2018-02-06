@@ -1,0 +1,49 @@
+<ion-header>
+    <ion-toolbar>
+        <button ion-button menuToggle icon-only>
+            <ion-icon name='menu'></ion-icon>
+        </button>
+        <ion-title>Category</ion-title>
+        <ion-buttons end>
+            <button style="color: #ff6300" (click)="OnNotificationClick($event)" ion-button>
+                <ion-icon name="notifications"></ion-icon>                
+            </button>
+            <ion-badge>2</ion-badge>
+        </ion-buttons>
+    </ion-toolbar>
+</ion-header>
+<ion-content style="background: #faebd7">
+    <ion-slides autoplay="3000" loop="true" speed="1000" pager style="height: 35%">
+        <ion-slide>
+            <img src="assets/img/slide1.jpg">
+        </ion-slide>
+        <ion-slide>
+            <img src="assets/img/slide2.jpg">
+        </ion-slide>
+        <ion-slide>
+            <img src="assets/img/slide3.jpg">
+        </ion-slide>
+    </ion-slides>
+    <hr>
+    <ion-grid style="padding-left:12%">
+        <ion-row>
+            <ion-col col-4 *ngFor="let category of categoryArray" (click)="onCategoryClick(category)">
+                <img src="{{category.fileUrl}}" style="height: 35px">
+                <p style="margin-top:0px">{{category.categoryName}}</p>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+</ion-content>
+<ion-footer>
+   <!--  <ion-toolbar (click)="onCheckout()">
+        <p style="color: white;" *ngIf="checkoutData.length==0">EMPTY CART</p>
+        <p style="color: white;" *ngIf="checkoutData.length>0">CHECKOUT ({{checkoutData.length}} ITEMS)</p>
+        <ion-buttons end>
+            <button ion-button icon-right color="royal">
+                <ion-icon name="basket"></ion-icon>
+               
+            </button>
+        </ion-buttons>
+    </ion-toolbar> -->
+    <page-footer-cart></page-footer-cart>
+</ion-footer>

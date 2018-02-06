@@ -1,0 +1,50 @@
+<ion-header>
+    <ion-toolbar>
+        <button ion-button menuToggle icon-only>
+            <ion-icon name='menu'></ion-icon>
+        </button>
+        <ion-title>My Profile</ion-title>
+        <ion-buttons end>
+            <button style="color: #ff6300" (click)="OnNotificationClick()" ion-button>
+                 <ion-icon  name="notifications"></ion-icon>
+                  <ion-badge>2</ion-badge>
+            </button>
+        </ion-buttons>
+    </ion-toolbar>
+</ion-header>
+<ion-content padding style="background: #faebd7">
+    <ion-card>
+        <ion-card-content>
+            <div item-center>
+                <img src="../assets/userImage.png" style="height: 80px; width: 80px;">
+                <h2>Robin Gupta</h2>
+                <h3>robin@gmail.com</h3>
+                <h4>9694741390</h4>
+            </div>
+        </ion-card-content>
+    </ion-card>
+    <ion-card>
+        <ion-card-content>
+            <ion-list no-lines>
+                <button ion-item>
+                    <ion-icon name="folder-open"></ion-icon>
+                    My Wallet
+                </button>
+                <button ion-item>
+                    <ion-icon name="mail"></ion-icon>
+                    Inbox
+                </button>
+            </ion-list>
+        </ion-card-content>
+    </ion-card>
+    <ion-card>
+        <ion-card-content>
+            <ion-list no-lines>
+                <button (click)="onSignOutClick()" ion-item>
+                    <ion-icon name="log-out"></ion-icon>
+                    Sign out
+                </button>
+            </ion-list>
+        </ion-card-content>
+    </ion-card>
+</ion-content>

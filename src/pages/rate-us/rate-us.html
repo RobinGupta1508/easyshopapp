@@ -1,0 +1,35 @@
+
+<ion-header>
+    <ion-toolbar>
+        <button ion-button menuToggle icon-only>
+            <ion-icon name='menu'></ion-icon>
+        </button>
+        <ion-title>Rate Us</ion-title>
+        <ion-buttons end>
+            <button style="color: #ff6300" (click)="OnNotificationClick()" ion-button>
+                 <ion-icon class="ion_zoom" name="notifications"></ion-icon>
+                  <ion-badge>2</ion-badge>
+            </button>
+        </ion-buttons>
+    </ion-toolbar>
+</ion-header>
+
+
+<ion-content padding>
+<ion-card>
+
+  <ion-card-content>
+  <ion-list >
+   <rating item-start [(ngModel)]="rate" readOnly="false" max="5" emptyStarIconName="star-outline" halfStarIconName="star-half" starIconName="star" nullable="false" (ngModelChange)="onModelChange($event)"></rating>
+  	
+  	<ion-item>
+  		<ion-label floating>Write Reviews</ion-label>
+    	<ion-textarea type="text"></ion-textarea>
+  	</ion-item>
+  </ion-list>
+  <button ion-button full (click)="OnSubmit()">Submit</button>
+    
+  </ion-card-content>
+
+</ion-card>
+</ion-content>

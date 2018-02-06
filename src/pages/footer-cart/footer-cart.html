@@ -1,0 +1,12 @@
+
+	<ion-toolbar (click)="onCheckout()">
+    <p style="color: white;" *ngIf="cartData.length == 0">EMPTY CART</p>
+    <p style="color: white;" *ngIf="cartData.length > 0">CHECKOUT ({{cartData.length}} ITEMS)</p>
+    <ion-buttons end>
+      <button ion-button icon-right color="royal">
+        <ion-icon name="basket"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-toolbar>
+
+

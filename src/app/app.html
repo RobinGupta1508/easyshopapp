@@ -1,0 +1,51 @@
+<ion-menu [content]="content">
+    <!-- <ion-header>
+        <ion-toolbar style="height: 150px" class="grad">
+           
+                <ion-list>
+                    <ion-item>
+                       
+                    </ion-item>
+                </ion-list>
+                
+            
+        </ion-toolbar>
+    </ion-header> -->
+    <ion-content>
+        <ion-list>
+            <button ion-item  menuToggle class="grad" (click)="onProfileClick()">
+                <img style="height: 80px; width: 80px; border-radius: 40px; " src="assets/img/user2.jpg">
+                <div  style="color: #fff" item-end>
+                    <h2>Hello {{userInfo?.name}} !</h2>
+                    <h4>{{userInfo?.mobile}}</h4>
+                </div>
+                
+            </button>
+            <button ion-item menuToggle (click)="homeClick()">
+            <ion-icon name="home"></ion-icon>
+                Home
+            </button>
+            <button ion-item menuToggle (click)="onMyOrderClick()">
+            <ion-icon name="paper"></ion-icon>
+                My Orders
+            </button>
+            <button menuToggle ion-item (click)="onCartClick()">
+            <ion-icon name="cart"></ion-icon>
+                Cart
+            </button>
+            <button menuToggle ion-item (click)="onContactUsClick()">
+            <ion-icon name="contact"></ion-icon>
+                Contact us
+            </button>
+            <button menuToggle ion-item (click)="onRateUsClick()">
+            <ion-icon name="star"></ion-icon>
+                Rate & Review
+            </button>
+            <button menuToggle ion-item (click)="onSignOut()">
+            <ion-icon name="log-out"></ion-icon>
+                Sign out
+            </button>
+        </ion-list>
+    </ion-content>
+</ion-menu>
+<ion-nav id="nav" #content [root]="rootPage" swipeBackEnabled="false"></ion-nav>

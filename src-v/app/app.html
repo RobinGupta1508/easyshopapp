@@ -1,0 +1,58 @@
+<ion-menu [content]="content">
+    <!-- <ion-header>
+        <ion-toolbar>
+            <ion-title>
+            </ion-title>
+           <div class="item item-avatar">
+               <img src="//ionicframework.com/img/docs/spengler.jpg">
+               <h2>Pretty Hate Machine</h2>
+               <p>Nine Inch Nails</p>
+           </div>
+        </ion-toolbar>
+    </ion-header> -->
+    <ion-content>
+        <div class="wrapper">
+            <img src="assets/518169-backgrounds.jpg" />
+            <img src="//ionicframework.com/img/docs/spengler.jpg" class="item-avatar">
+            <p class="name">Lukas Reiner</p>
+            <p class="email">lukasrein97@gmail.com</p>
+        </div>
+        <ion-list>
+            <button ion-item *ngFor="let p of pages" (click)="openPage(p)">
+                {{p.title}}
+            </button>
+        </ion-list>
+        <!--  <button ion-button color="white" block outline position="bottom" width="100%" class="item2">Settings</button>
+       <button ion-button color="white" block outline position="bottom" width="100%" class="item2">Logout</button> -->
+    </ion-content>
+    <ion-footer>
+        <ion-toolbar color="androidprimary">
+            <!-- <button ion-button color="white" block outline position="bottom" width="100%" class="" (click)="settingButton()">
+                <ion-icon name="settings" padding></ion-icon>
+                Settings
+            </button>
+            <button ion-button color="white" block outline position="bottom" width="100%" class="">
+                Logout
+            </button> -->
+            <ion-item nav-clear menu-close class="footer" (click)="logout()">Logout</ion-item>
+        </ion-toolbar>
+    </ion-footer>
+    <!-- <ion-footer-bar align-title="left" class="bar-assertive">
+        <ion-tabs class="tabs-positive tabs-icon-top">
+     
+          <ion-tab title="Home" icon-on="ion-ios-filing" icon-off="ion-ios-filing-outline">
+            Tab 1 content
+          </ion-tab>
+     
+          <ion-tab title="About" icon-on="ion-ios-clock" icon-off="ion-ios-clock-outline">
+            Tab 2 content
+          </ion-tab>
+     
+          <ion-tab title="Settings" icon-on="ion-ios-gear" icon-off="ion-ios-gear-outline">
+            Tab 3 content
+          </ion-tab>
+     
+        </ion-tabs>
+     </ion-footer-bar> -->
+</ion-menu>
+<ion-nav [root]="rootPage" #content swipeBackEnabled="false"></ion-nav>

@@ -1,0 +1,67 @@
+<!--
+  Generated template for the ChangeProfilePage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+    <ion-toolbar>
+        <button ion-button menuToggle icon-only>
+            <ion-icon name='menu'></ion-icon>
+        </button>
+        <ion-title>Change Profile</ion-title>
+        <!-- <ion-buttons end>
+            <button style="color: #ff6300" (click)="OnNotificationClick()" ion-button>
+                 <ion-icon  name="notifications"></ion-icon>
+                  <ion-badge>2</ion-badge>
+            </button>
+        </ion-buttons> -->
+    </ion-toolbar>
+</ion-header>
+<ion-content padding>
+    <form>
+        <ion-row>
+            <ion-col>
+                <ion-list inset>
+                    <ion-item>
+                        <ion-label floating>First Name</ion-label>
+                        <ion-input type="text" name="firstName" [(ngModel)]="userForm.firstName" required></ion-input>
+                    </ion-item>
+                    <ion-item>
+                     <ion-label floating>Last Name</ion-label>
+                        <ion-input type="text" name="lastName" [(ngModel)]="userForm.lastName" required></ion-input>
+                    </ion-item>
+                    <ion-item>
+                    <ion-label floating>Email</ion-label>
+                        <ion-input type="text" name="email" [(ngModel)]="userForm.email" required></ion-input>
+                    </ion-item>
+                    <ion-item>
+                    <ion-label floating>City</ion-label>
+                        <ion-input type="text" name="city" [(ngModel)]="userForm.city" required></ion-input>
+                    </ion-item>
+                    <ion-item>
+                        <ion-label>Choose State</ion-label>
+                        <ion-select name="state" [(ngModel)]="userForm.state">
+                            <ion-option *ngFor="let state of stateArray" [value]="state.name">{{state.name}}</ion-option>
+                        </ion-select>
+                    </ion-item>
+                    <ion-item>
+                        <ion-label>Choose Country</ion-label>
+                        <ion-select name="country" [(ngModel)]="userForm.country">
+                            <ion-option *ngFor="let countryVal of countryArray" [value]="countryVal.name">{{countryVal.name}}</ion-option>
+                        </ion-select>
+                    </ion-item>
+                    <ion-item>
+                    <ion-label floating>Phone Number</ion-label>
+                        <ion-input type="text" name="phoneNumber" [(ngModel)]="userForm.phoneNumber" required></ion-input>
+                    </ion-item>
+                </ion-list>
+            </ion-col>
+        </ion-row>
+        <ion-row>
+            <ion-col class="signup-col">
+                <button ion-button class="submit-btn" full type="submit" (click)="submit()">Submit</button>
+            </ion-col>
+        </ion-row>
+    </form>
+</ion-content>

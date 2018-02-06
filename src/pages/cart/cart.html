@@ -1,0 +1,121 @@
+<ion-header>
+  <ion-toolbar>
+    <button ion-button menuToggle icon-only>
+      <ion-icon name='menu'></ion-icon>
+    </button>
+    <ion-title>Cart</ion-title>
+    <ion-buttons end>
+      <button style="color: #ff6300" (click)="OnNotificationClick()" ion-button>
+        <ion-icon name="notifications"></ion-icon>
+        <ion-badge>2</ion-badge>
+      </button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content *ngIf="checkoutData.length>0" padding style="background: #faebd7">
+  Delivery Address
+  <ion-card>
+    <ion-card-content>
+      <ion-list no-lines>
+        <button (click)="onConfirmDeliveryAddress()" ion-item>
+          <ion-icon name="information-circle"></ion-icon>
+          Confirm delivery address
+        </button>
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
+  <!-- Delivery Slot
+  <ion-card>
+    <ion-card-content>
+      <ion-list no-lines>
+        <ion-item>
+          <ion-label>Delivery Slot</ion-label>
+          <ion-select [(ngModel)]="deliveryTime">
+            <ion-option value="0">
+              8:00 AM - 9:00 AM
+            </ion-option>
+            <ion-option value="1">
+              8:00 AM - 9:00 AM
+            </ion-option>
+            <ion-option value="2">
+              8:00 AM - 9:00 AM
+            </ion-option>
+          </ion-select>
+        </ion-item>
+      </ion-list>
+    </ion-card-content>
+  </ion-card> -->
+  Card Detail
+  <ion-card>
+    <ion-card-content>
+      <ion-list no-lines>
+        <ion-list-header>
+          Cart Items ({{checkoutData.length}} ITEMS)
+          <a (click)="viewCart()">View Cart</a>
+        </ion-list-header>
+        <ion-item *ngFor="let item of checkoutData">
+          <h2>{{item.name}}</h2>
+          <p>Rs. {{item.price}}</p>
+          <ion-icon (click)="addToCart(item)" style="color: #ff4200" name="add-circle" item-end></ion-icon>
+          <p item-end >{{item.quantity}}</p>
+          <ion-icon (click)="removeFromCart(item)" name="remove-circle" style="color: #ff4200" item-end></ion-icon>
+        </ion-item>
+        
+        <ion-item>
+          Total
+          <p item-end>{{total}} Rs</p>
+        </ion-item>
+        <ion-item>
+          Promotion Money
+          <p item-end>{{walletMoney}} Rs</p>
+          <p *ngIf="payableAmount == total">Oredr should be above Rs. 300 to apply promotion money</p>
+          <p *ngIf="payableAmount < total">Promotion applied</p>
+        </ion-item>
+        <ion-item>
+          Payable Amount
+          <p item-end>{{payableAmount}} Rs</p>
+        </ion-item>
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
+  Payment Option
+  <ion-card>
+    <ion-card-content>
+      <ion-list no-lines>
+        <ion-item>
+          CASH
+          <ion-icon item-end ios="ios-cash" md="md-cash"></ion-icon>
+        </ion-item>
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
+  Delivery Instruction
+  <ion-card>
+    <ion-card-content>
+      <ion-list no-lines>
+        <ion-item>
+          <ion-input type="text" placeholder="Add Delivery Instruction"></ion-input>
+        </ion-item>
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
+</ion-content>
+<ion-content *ngIf="checkoutData.length==0" style="background: #faebd7">
+  <ion-card>
+    <ion-card-header>
+    </ion-card-header>
+    <ion-card-content>
+      Your Cart is Emapty
+    </ion-card-content>
+  </ion-card>
+</ion-content>
+<ion-footer *ngIf="checkoutData.length>0">
+  <ion-toolbar (click)="onConfirmOrder()">
+    <p center style="color: white;">CONFIRM ORDER</p>
+    <ion-buttons end>
+      <button ion-button icon-right color="royal">
+        <ion-icon ios="ios-arrow-forward" md="md-arrow-forward"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-footer>

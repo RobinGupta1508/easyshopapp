@@ -1,0 +1,71 @@
+
+<ion-header>
+    <ion-toolbar>
+        <button ion-button menuToggle icon-only>
+            <ion-icon name='menu'></ion-icon>
+        </button>
+        <ion-title>My Orders</ion-title>
+        <ion-buttons end>
+            <button style="color: #ff6300" (click)="OnNotificationClick()" ion-button>
+                 <ion-icon  name="notifications"></ion-icon>
+                  <ion-badge>2</ion-badge>
+            </button>
+        </ion-buttons>
+    </ion-toolbar>
+</ion-header>
+<ion-content padding style="background: #faebd7">
+    <ion-segment [(ngModel)]="orderStatus">
+        <ion-segment-button value="running">
+            Running
+        </ion-segment-button>
+        <ion-segment-button value="shipped">
+            Shipped
+        </ion-segment-button>
+    </ion-segment>
+    <div [ngSwitch]="orderStatus">
+        <ion-card *ngSwitchCase="'running'">
+            <ion-card-content>
+                <ion-list no-lines>
+                    <ion-item>
+                        <h5>Order id</h5>
+                        <h5 item-end>548798549</h5>
+                    </ion-item>
+                     <ion-item>
+                        <h5>Order Amount</h5>
+                        <h5 item-end>1250 Rs</h5>
+                    </ion-item>
+                     <ion-item>
+                        <h5>Order Date</h5>
+                        <h5 item-end>25/06/2017</h5>
+                    </ion-item>
+                    <ion-item>
+                        <h5>Shipping Date</h5>
+                        <h5 item-end>28/06/2017</h5>
+                    </ion-item>
+                </ion-list>
+            </ion-card-content>
+        </ion-card>
+        <ion-card *ngSwitchCase="'shipped'">
+            <ion-card-content>
+                <ion-list no-lines>
+                    <ion-item>
+                        <h5>Order id</h5>
+                        <h5 item-end>548798549</h5>
+                    </ion-item>
+                     <ion-item>
+                        <h5>Order Amount</h5>
+                        <h5 item-end>1250 Rs</h5>
+                    </ion-item>
+                     <ion-item>
+                        <h5>Order Date</h5>
+                        <h5 item-end>25/06/2017</h5>
+                    </ion-item>
+                    <ion-item>
+                        <h5>Shipping Date</h5>
+                        <h5 item-end>28/06/2017</h5>
+                    </ion-item>
+                </ion-list>
+            </ion-card-content>
+        </ion-card>
+    </div>
+</ion-content>

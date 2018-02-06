@@ -1,0 +1,28 @@
+<ion-content class="login-content" padding>
+    <ion-row class="logo-row">
+        <ion-col></ion-col>
+        <ion-col width-67>
+            <img src="http://placehold.it/300x200" />
+        </ion-col>
+        <ion-col></ion-col>
+    </ion-row>
+    <div class="login-box">
+        <form (ngSubmit)="login()" #registerForm="ngForm">
+            <ion-row>
+                <ion-col>
+                    <ion-list inset>
+                        <ion-item>
+                            <ion-input type="number" placeholder="Enter OTP" name="mobile" required></ion-input>
+                        </ion-item>
+                    </ion-list>
+                </ion-col>
+            </ion-row>
+            <ion-row>
+                <ion-col class="signup-col">
+                    <button ion-button class="submit-btn" full type="submit" [disabled]="!registerForm.form.valid">Verify OTP</button>
+                </ion-col>
+            </ion-row>
+        </form>
+        <button ion-button class="register-btn" block clear (click)="onCreateNew()"></button>
+    </div>
+</ion-content>

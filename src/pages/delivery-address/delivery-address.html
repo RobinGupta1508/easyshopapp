@@ -1,0 +1,31 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>Confirm Address</ion-title>
+    </ion-navbar>
+</ion-header>
+<ion-content padding style="background: #faebd7">
+   
+    <ion-card>
+        
+        <!-- <p>{{deliveryAddress.fullAddress}}</p> -->
+        <ion-item>
+            
+            <agm-map [latitude]="deliveryAddress.lat" [longitude]="deliveryAddress.lng" [zoom]="15">
+            <agm-marker [latitude]="deliveryAddress.lat" [longitude]="deliveryAddress.lng"></agm-marker>
+        </agm-map>
+        </ion-item>
+        <ion-item>
+            <ion-icon name="wine" item-left large></ion-icon>
+            <h2>{{deliveryAddress.fullAddress.split(',')[0]}},{{deliveryAddress.fullAddress.split(',')[1]}}</h2>
+            <p>{{deliveryAddress.fullAddress.split(',')[2]}},{{deliveryAddress.fullAddress.split(',')[3]}}</p>
+        </ion-item>
+        <ion-item>
+            <span item-left>18 min</span>
+            <span item-left>(2.6 mi)</span>
+            <button ion-button icon-left clear item-end>
+                <ion-icon name="navigate"></ion-icon>
+                Start
+            </button>
+        </ion-item>
+    </ion-card>
+</ion-content>
